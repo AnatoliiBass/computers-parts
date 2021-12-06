@@ -1,5 +1,5 @@
 import menu from './NavMenu.module.css'
-import { MenuItem } from '@mui/material';
+import { MenuItem } from '@mui/material'
 const NavMenu = () => {
    return (
       <nav>
