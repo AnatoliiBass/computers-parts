@@ -1,5 +1,8 @@
 .wrapper {
-   height: 100%;
-   width: 100%;
-   background-color: rgb(228, 212, 125);
+   height: 100vh;
+   width: 100vw;
+   background-color: rgb(144, 192, 164);
+   display: flex;
+   justify-content: space-between;
+   flex-direction: column;
 }

@@ -2,12 +2,12 @@
 //import axios from 'axios'
 
 const Data = () => {
-   fetch('https://computers-parts-98eac-default-rtdb.europe-west1.firebasedatabase.app/catalog', {
-      method: "GET",
-      mode: "no-cors",
-   }).then((res, req) => {
-      res.json()
-   }).then(data => console.log(data)).catch(err => console.log(err))
+   // fetch('https://computers-parts-98eac-default-rtdb.europe-west1.firebasedatabase.app/catalog', {
+   //    method: "GET",
+   //    mode: "no-cors",
+   // }).then((res, req) => {
+   //    res.json()
+   // }).then(data => console.log(data)).catch(err => console.log(err))
 
    return (<div>
       {/* {

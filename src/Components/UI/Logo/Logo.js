@@ -1,7 +1,7 @@
 import logo from '../Logo/Logo.module.css'
 import logoImg from './Assets/logo.png'
 const Logo = () => {
-   return (<div>
+   return (<div className={logo.image}>
       <img src={logoImg} alt="Logo" />
    </div>)
 }

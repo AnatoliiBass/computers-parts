@@ -1,0 +1,10 @@
+.flex {
+   background-color: rgb(22, 74, 83);
+}
+.container {
+   width: 90%;
+   margin: 0 auto;
+   display: flex;
+   color: #fff;
+   font-weight: 600;
+}
