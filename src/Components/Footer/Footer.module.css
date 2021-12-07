@@ -1,8 +1,22 @@
-.flex {
+.bg {
    background-color: rgb(22, 74, 83);
+}
+.flex {
+   display: flex;
+   align-items: center;
+}
+.flexplus {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
 .container {
    width: 90%;
    margin: 0 auto;
    display: flex;
+   justify-content: space-between;
+   color: #fff;
+}
+.cursor {
+   cursor: pointer;
 }
