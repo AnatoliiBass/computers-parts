@@ -1,13 +1,14 @@
 
-//import axios from 'axios'
+import axios from 'axios'
 
 const Data = () => {
    // axios({
-   //    url: 'https://console.firebase.google.com/project/computers-parts-98eac/database/data/catalog',
+   //    url: 'https://computers-parts-98eac-default-rtdb.europe-west1.firebasedatabase.app/catalog',
    //    method: 'GET',
-   //    mode: 'no-cors',
    //    headers: {
-   //       'Content-Type': 'application/json'
+   //       'Access-Control-Allow-Origin': '*',
+   //       'Content-Type': 'application/json',
+   //       mode: 'no-cors',
    //    },
    // }).then(res => {
    //    const catalog = res.data

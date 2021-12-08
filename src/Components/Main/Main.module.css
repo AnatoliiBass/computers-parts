@@ -6,5 +6,6 @@
 .container {
    width: 90%;
    margin: auto;
+   padding: 10px 0;
    color: rgb(22, 74, 83);
 }

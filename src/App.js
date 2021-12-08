@@ -7,12 +7,12 @@ const App = () => {
   return (
     <div className={app.wrapper}>
       <div>
-        <div><Header /></div>
-        <div><Main /></div>
+        <Header />
+        <Main />
       </div>
-      <div><Footer /></div>
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
