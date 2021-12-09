@@ -1,0 +1,9 @@
+.about {
+   display: flex;
+   flex-direction: column;
+}
+.image img {
+   border-radius: 5%;
+   width: 100%;
+   margin: 15px 0;
+}

@@ -1,0 +1,16 @@
+.contacts {
+   display: flex;
+   flex-direction: column;
+}
+.info {
+   margin: 15px;
+   text-align: left;
+}
+.info a {
+   text-decoration: none;
+   color: #fff;
+}
+
+.info a:hover {
+   text-decoration: underline;
+}
