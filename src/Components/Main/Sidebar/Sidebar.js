@@ -1,4 +1,4 @@
-import { sidebar } from './Sidebar.module.css'
+import { sidebar, filter } from './Sidebar.module.css'
 import Title from '../../UI/Title/Title'
 import AccordionItems from '../../UI/AccordionItems/AccordionItems'
 import FilterPrice from '../../UI/FilterPrice/FilterPrice'
@@ -15,8 +15,10 @@ const Sidebar = () => {
          <Title size="h5" seo="h2" description="Computer parts" />
          <AccordionItems infoArray={info} />
          <Title size="h5" seo="h2" description="Filters" />
-         <FilterPrice min="1000" max="10000" />
-         <SelectItem arrBrands={arr} />
+         <div className={filter}>
+            <FilterPrice min="1000" max="10000" />
+            <SelectItem arrBrands={arr} />
+         </div>
       </section>
    )
 }

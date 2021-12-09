@@ -15,7 +15,7 @@ const FilterPrice = ({ min, max }) => {
       <div>
          <Title size="h6" seo="h5" description="Range prices" />
          <Slider
-            aria-label="Always visible"
+            getAriaLabel={() => 'Price range'}
             value={value}
             onChange={handleChange}
             getAriaValueText={valuetext}
