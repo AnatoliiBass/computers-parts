@@ -1,0 +1,9 @@
+.callbackform {
+   display: flex;
+   justify-content: center;
+}
+.mainbox {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}

@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material"
+import CallBackForm from "../../../UI/CallBackForm/CallBackForm"
 import Title from "../../../UI/Title/Title"
 import { contacts, info } from "./Contacts.module.css"
 
@@ -12,6 +13,8 @@ const Contacts = () => {
             <Typography>Our email: <a href="mailto:comp.parts@gmail.com">comp.parts@gmail.com</a></Typography>
          </div>
          <Title size="h4" seo="h2" description="Your questions or propouses" />
+         <CallBackForm />
+
       </section>
    )
 }

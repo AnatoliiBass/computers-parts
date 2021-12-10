@@ -6,7 +6,7 @@ function valuetext(value) {
 }
 
 const FilterPrice = ({ min, max }) => {
-   const [value, setValue] = React.useState([2000, 3700])
+   const [value, setValue] = React.useState([parseInt(min), parseInt(max)])
    const handleChange = (event, newValue) => {
       setValue(newValue)
    }

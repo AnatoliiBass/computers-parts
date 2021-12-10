@@ -10,6 +10,12 @@
    align-items: center;
    justify-content: space-between;
 }
+.flexplus a {
+   color: inherit;
+}
+.flexplus a:hover {
+   color: rgb(144, 192, 164);
+}
 .container {
    width: 90%;
    margin: 0 auto;
@@ -17,9 +23,7 @@
    justify-content: space-between;
    color: #fff;
 }
-.cursor {
-   cursor: pointer;
-}
+
 @media (max-width: 800px) {
    .footerNav {
       display: none;

@@ -1,4 +1,4 @@
-import { container, bg, flex, flexplus, cursor, footerNav } from './Footer.module.css'
+import { container, bg, flex, flexplus, footerNav } from './Footer.module.css'
 import Logo from '../UI/Logo/Logo'
 import NavMenu from '../UI/NavMenu/NavMenu'
 import Copy from './Copy/Copy'
@@ -15,9 +15,9 @@ const Footer = () => {
          <div className={flexplus}>
             <nav className={footerNav}><NavMenu /></nav>
             <div className={flexplus}>
-               <FacebookIcon className={cursor} />
-               <InstagramIcon className={cursor} />
-               <YouTubeIcon className={cursor} />
+               <a href="https://facebook.com"><FacebookIcon/></a>
+               <a href="https://instagram.com"><InstagramIcon/></a>
+               <a href="https://youtube.com"><YouTubeIcon/></a>
             </div>
          </div>
       </div>
