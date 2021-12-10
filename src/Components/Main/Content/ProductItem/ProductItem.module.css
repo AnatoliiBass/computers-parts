@@ -1,0 +1,17 @@
+.flex {
+   display: flex;
+}
+.box {
+   flex: 1 1 50%;
+   margin: 10px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+.box img {
+   width: 100%;
+}
+.buttons {
+   display: flex;
+   justify-content: space-between;
+}

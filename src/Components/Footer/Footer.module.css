@@ -12,6 +12,7 @@
 }
 .flexplus a {
    color: inherit;
+   text-decoration: none;
 }
 .flexplus a:hover {
    color: rgb(144, 192, 164);

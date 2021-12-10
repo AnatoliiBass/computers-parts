@@ -1,7 +1,9 @@
 import { Button, Card, CardActions, CardContent, Typography } from "@mui/material"
 import style from "./ProductCards.module.css"
-import image from "./Item.webp"
+import card from "./Item.webp"
 import Title from "../../../UI/Title/Title"
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import { NavLink } from "react-router-dom"
 const ProductCards = ({ arrObjects }) => {
    return (
       <section>
@@ -17,11 +19,12 @@ const ProductCards = ({ arrObjects }) => {
                         Description
                      </Typography>
                      <div className={style.image}>
-                        <img src={image} alt="Photo product" />
+                        <img src={card} alt="Photo product" />
                      </div>
                   </CardContent>
-                  <CardActions>
-                     <Button size="small">In Cart</Button>
+                  <CardActions className={style.buttons}>
+                     <NavLink to="/productitem"><Button size="small" color="inherit">See More...</Button></NavLink>
+                     <Button size="small" color="inherit"><ShoppingCartIcon /></Button>
                   </CardActions>
                </Card>
             ))}

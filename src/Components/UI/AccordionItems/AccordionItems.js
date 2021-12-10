@@ -1,5 +1,6 @@
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { NavLink } from "react-router-dom"
 
 const AccordionItems = ({ infoArray }) => {
    const keys = Object.keys(infoArray)
@@ -16,7 +17,7 @@ const AccordionItems = ({ infoArray }) => {
                   {
                      infoArray[item].map((element, i) => (
                         <AccordionSummary key={Math.floor(Math.random() * 200) + i}>
-                           <Typography>{element}</Typography>
+                           <NavLink to="/productcards"><Typography>{element}</Typography></NavLink>
                         </AccordionSummary>
                      ))
                   }

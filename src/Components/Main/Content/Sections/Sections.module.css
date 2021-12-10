@@ -3,7 +3,8 @@
    flex-wrap: wrap;
    justify-content: center;
 }
-.box {
+.sectionBox a {
+   text-decoration: none;
    height: 100px;
    margin: 15px;
    flex: 0 1 45%;
