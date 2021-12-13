@@ -6,8 +6,7 @@ import { content } from './Content.module.css'
 import ProductCards from './ProductCards/ProductCards'
 import ProductItem from './ProductItem/ProductItem'
 import Sections from './Sections/Sections'
-const arr = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
-const Content = () => {
+const Content = ({ state }) => {
    return (
       <section className={content}>
          <Routes>
@@ -16,8 +15,8 @@ const Content = () => {
             <Route path="/network" element={<Sections sections={["Network hardware", "Modems,Routers"]} />} />
             <Route path="/about" element={<About />} />
             <Route path="/contacts" element={<Contacts />} />
-            <Route path="/productcards" element={<ProductCards arrObjects={arr} />} />
-            <Route path="/productitem" element={<ProductItem name="Asus NVidia SX 2345 LD" />} />
+            <Route path="/productcards" element={<ProductCards arrObjects={state.products} />} />
+            <Route path="/productcards/productitem" element={<ProductItem name="Asus NVidia SX 2345 LD" />} />
          </Routes>
       </section >)
 }

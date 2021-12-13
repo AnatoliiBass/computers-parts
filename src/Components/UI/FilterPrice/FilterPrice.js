@@ -1,12 +1,12 @@
 import { Slider, Typography } from "@mui/material"
-import React from "react";
+import React from "react"
 import Title from "../Title/Title"
-function valuetext(value) {
-   return `${value}`;
-}
 
 const FilterPrice = ({ min, max }) => {
-   const [value, setValue] = React.useState([parseInt(min), parseInt(max)])
+   function valuetext(value) {
+      return `${value}`
+   }
+   const [value, setValue] = React.useState([min, max])
    const handleChange = (event, newValue) => {
       setValue(newValue)
    }
@@ -21,8 +21,8 @@ const FilterPrice = ({ min, max }) => {
             getAriaValueText={valuetext}
             valueLabelDisplay="auto"
             step={100}
-            min={parseInt(min)}
-            max={parseInt(max)}
+            min={min}
+            max={max}
          />
          <Typography>From {arrvalue[0]} to {arrvalue[1]} $</Typography>
       </div>

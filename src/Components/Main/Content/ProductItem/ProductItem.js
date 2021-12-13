@@ -10,7 +10,7 @@ const ProductItem = ({ name }) => {
          <Title size="h3" seo="h2" description={name} />
          <div className={style.flex}>
             <div className={style.box}>
-               <img src={card} alt="Photo product" />
+               <img src={card} alt="Some product" />
             </div>
             <Card sx={{ maxWidth: 250 }} className={style.box}>
                <CardContent>
