@@ -13,12 +13,12 @@ const ABOUT = "/about"
 const CONTACTS = "/contacts"
 const PRODUCTCARDS = "/productcards"
 const PRODUCTITEM = "/productcards/productitem"
-const Content = ({ state, addCategory }) => {
+const Content = ({ state, addCategory, updateCategory }) => {
    const categories = [...state.categories]
    return (
       <section className={content}>
          <Routes>
-            <Route path={BASEURL} element={<Sections sections={["Computer parts", categories.map(item => item.name)]} btn={true} addCategory={addCategory} />} />
+            <Route path={BASEURL} element={<Sections sections={["Computer parts", categories.map(item => item.name)]} btn={true} addCategory={addCategory} updateCategory={updateCategory} info={state.newinfo} />} />
             <Route path={COMPONENTS} element={<Sections sections={["Components", ["Sound cards", "Video cards"]]} />} />
             <Route path={NETWORK} element={<Sections sections={["Network hardware", ["Modems", "Routers"]]} />} />
             <Route path={ABOUT} element={<About />} />

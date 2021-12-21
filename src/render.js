@@ -7,14 +7,14 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
-import { addCategory } from './Redux/state'
+import { addCategory, updateCategory } from './Redux/state'
 
 
 export const renderMainTree = (state) => {
    ReactDOM.render(
       <React.StrictMode>
          <BrowserRouter>
-            <App state={state} addCategory={addCategory} />
+            <App state={state} addCategory={addCategory} updateCategory={updateCategory} />
          </BrowserRouter>
       </React.StrictMode>,
       document.getElementById('root')

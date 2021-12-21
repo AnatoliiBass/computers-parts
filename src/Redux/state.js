@@ -1,6 +1,7 @@
 import { renderMainTree } from "../render"
 
 const state = {
+   newinfo: "new info",
    categories: [
       {
          "name": "Components",
@@ -2824,14 +2825,23 @@ const state = {
       return Math.min(...newArr)
    },
 }
-export const addCategory = (name) => {
+export const updateCategory = (name) => {
+
+   state.newinfo = name
+   renderMainTree(state)
+}
+
+export const addCategory = () => {
    const newCategory = {
-      name: name,
+      name: state.newinfo,
       id: String(parseInt(state.categories[state.categories.length - 1].id) + 1),
       items: [],
    }
    state.categories.push(newCategory)
+   updateCategory('')
    renderMainTree(state)
 }
+
+
 
 export default state
