@@ -6,17 +6,25 @@ import { content } from './Content.module.css'
 import ProductCards from './ProductCards/ProductCards'
 import ProductItem from './ProductItem/ProductItem'
 import Sections from './Sections/Sections'
-const Content = ({ state }) => {
+const BASEURL = "/"
+const COMPONENTS = "/components"
+const NETWORK = "/network"
+const ABOUT = "/about"
+const CONTACTS = "/contacts"
+const PRODUCTCARDS = "/productcards"
+const PRODUCTITEM = "/productcards/productitem"
+const Content = ({ state, addCategory }) => {
+   const categories = [...state.categories]
    return (
       <section className={content}>
          <Routes>
-            <Route path="/" element={<Sections sections={["Computer parts", "Components,Network hardware"]} />} />
-            <Route path="/components" element={<Sections sections={["Components", "Sound cards,Video cards"]} />} />
-            <Route path="/network" element={<Sections sections={["Network hardware", "Modems,Routers"]} />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contacts" element={<Contacts />} />
-            <Route path="/productcards" element={<ProductCards arrObjects={state.products} />} />
-            <Route path="/productcards/productitem" element={<ProductItem name="Asus NVidia SX 2345 LD" />} />
+            <Route path={BASEURL} element={<Sections sections={["Computer parts", categories.map(item => item.name)]} btn={true} addCategory={addCategory} />} />
+            <Route path={COMPONENTS} element={<Sections sections={["Components", ["Sound cards", "Video cards"]]} />} />
+            <Route path={NETWORK} element={<Sections sections={["Network hardware", ["Modems", "Routers"]]} />} />
+            <Route path={ABOUT} element={<About />} />
+            <Route path={CONTACTS} element={<Contacts />} />
+            <Route path={PRODUCTCARDS} element={<ProductCards arrObjects={state.products} />} />
+            <Route path={PRODUCTITEM} element={<ProductItem name="Asus NVidia SX 2345 LD" />} />
          </Routes>
       </section >)
 }

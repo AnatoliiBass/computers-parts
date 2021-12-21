@@ -1,3 +1,5 @@
+import { renderMainTree } from "../render"
+
 const state = {
    categories: [
       {
@@ -2821,6 +2823,15 @@ const state = {
       const newArr = arrMin.map(item => parseInt(item.price))
       return Math.min(...newArr)
    },
+}
+export const addCategory = (name) => {
+   const newCategory = {
+      name: name,
+      id: String(parseInt(state.categories[state.categories.length - 1].id) + 1),
+      items: [],
+   }
+   state.categories.push(newCategory)
+   renderMainTree(state)
 }
 
 export default state
