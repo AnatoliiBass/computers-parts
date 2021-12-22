@@ -15,7 +15,7 @@ const Sections = ({ sections, btn, dispatch, info }) => {
       return url
    }
    const elements = sections[1].map((item, index) => (
-      <NavLink to={getUrl(item)} key={Math.floor(Math.random() * 100 + index)}><Title size="h4" seo="h3" description={item} /></NavLink>
+      <NavLink to={getUrl(item)} key={Date.now() + index}><Title size="h4" seo="h3" description={item} /></NavLink>
    ))
    return (
       <div>

@@ -1,23 +1,20 @@
-import { Button } from "@mui/material"
-import React from "react"
+import { Button, TextField, Typography } from "@mui/material"
+import { addCategoryCreator, updateCategoryCreator } from "../../../Redux/Reducers/categoryReducer"
+import { addcategory } from './AddCategories.module.css'
 
 const AddCategories = ({ dispatch, info }) => {
-   const newCategory = React.createRef()
 
    const addNewCategory = () => {
-      if (newCategory.current.value) {
-         dispatch({ type: 'ADD-CATEGORY' })
-      }
-
+      dispatch(addCategoryCreator())
    }
 
-   const onCategoryChange = () => {
-      dispatch({ type: 'UPDATE-CATEGORY', valueName: newCategory.current.value })
+   const onCategoryChange = (event) => {
+      dispatch(updateCategoryCreator(event.target.value))
    }
    return (
-      <div>
-         <textarea onChange={onCategoryChange} ref={newCategory} value={info} />
-         <Button onClick={addNewCategory}>Add New Category</Button>
+      <div className={addcategory}>
+         <TextField onChange={onCategoryChange} value={info} />
+         <Button onClick={addNewCategory} color="inherit"><Typography>Add New Category</Typography></Button>
       </div>
    )
 }

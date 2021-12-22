@@ -14,7 +14,7 @@ let renderMainTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App state={state} dispatch={store.dispatch.bind(store)} />
+        <App state={state} dispatch={store.dispatch.bind(store)} min={store.min.bind(store)} max={store.max.bind(store)} />
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')

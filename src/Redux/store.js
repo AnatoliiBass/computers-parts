@@ -1,40 +1,45 @@
+import categoryReducer from "./Reducers/categoryReducer"
+
+
 const store = {
    _state: {
-      newinfo: "",
-      categories: [
-         {
-            "name": "Components",
-            "id": "1011",
-            "items": [
-               {
-                  "name": "Sound cards",
-                  "id": "1018",
-                  "parent_id": "1011"
-               },
-               {
-                  "name": "Video cards",
-                  "id": "1019",
-                  "parent_id": "1011"
-               },
-            ]
-         },
-         {
-            "name": "Network hardware",
-            "id": "1027",
-            "items": [
-               {
-                  "name": "Modems",
-                  "id": "1029",
-                  "parent_id": "1027"
-               },
-               {
-                  "name": "Routers",
-                  "id": "1030",
-                  "parent_id": "1027"
-               },
-            ]
-         }
-      ],
+      categories: {
+         newinfo: "",
+         categories: [
+            {
+               "name": "Components",
+               "id": "1011",
+               "items": [
+                  {
+                     "name": "Sound cards",
+                     "id": "1018",
+                     "parent_id": "1011"
+                  },
+                  {
+                     "name": "Video cards",
+                     "id": "1019",
+                     "parent_id": "1011"
+                  },
+               ]
+            },
+            {
+               "name": "Network hardware",
+               "id": "1027",
+               "items": [
+                  {
+                     "name": "Modems",
+                     "id": "1029",
+                     "parent_id": "1027"
+                  },
+                  {
+                     "name": "Routers",
+                     "id": "1030",
+                     "parent_id": "1027"
+                  },
+               ]
+            }
+         ]
+      },
       brands: ["Creative", "NAD", "Cambridge", "Korg",
          "RME", "C-Media", "Asus", "Huawei", "ZTE"],
       products: [
@@ -2815,14 +2820,7 @@ const store = {
             ]
          }
       ],
-      max() {
-         const newArr = this.products.map(item => parseInt(item.price))
-         return Math.max(...newArr)
-      },
-      min() {
-         const newArr = this.products.map(item => parseInt(item.price))
-         return Math.min(...newArr)
-      },
+
    },
    getState() {
       return this._state
@@ -2832,37 +2830,22 @@ const store = {
       this._renderMainTree = observer
    },
 
-   _updateCategory(name) {
-      this._state.newinfo = name
-      this._renderMainTree(this._state)
+   max() {
+      const newArr = this._state.products.map(item => parseInt(item.price))
+      return Math.max(...newArr)
    },
-
-   _addCategory() {
-      const newCategory = {
-         name: this._state.newinfo,
-         id: String(parseInt(this._state.categories[this._state.categories.length - 1].id) + 1),
-         items: [],
-      }
-      if (newCategory.name) { this._state.categories.push(newCategory) }
-      this._updateCategory('')
-      this._renderMainTree(this._state)
+   min() {
+      const newArr = this._state.products.map(item => parseInt(item.price))
+      return Math.min(...newArr)
    },
 
    dispatch(action) {
-      switch (action.type) {
-         case 'ADD-CATEGORY': {
-            this._addCategory()
-            break
-         }
-         case 'UPDATE-CATEGORY': {
-            this._updateCategory(action.valueName)
-            break
-         }
-         default: {
-            console.log('No one case')
-         }
-      }
+      this._state.categories = categoryReducer(this._state.categories, action)
+
+
+      this._renderMainTree(this._state)
    }
 }
+
 
 export default store
