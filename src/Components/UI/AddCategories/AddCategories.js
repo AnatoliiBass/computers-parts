@@ -1,18 +1,18 @@
 import { Button } from "@mui/material"
 import React from "react"
 
-const AddCategories = ({ addCategory, updateCategory, info }) => {
+const AddCategories = ({ dispatch, info }) => {
    const newCategory = React.createRef()
 
    const addNewCategory = () => {
       if (newCategory.current.value) {
-         addCategory(newCategory.current.value)
+         dispatch({ type: 'ADD-CATEGORY' })
       }
 
    }
 
    const onCategoryChange = () => {
-      updateCategory(newCategory.current.value)
+      dispatch({ type: 'UPDATE-CATEGORY', valueName: newCategory.current.value })
    }
    return (
       <div>

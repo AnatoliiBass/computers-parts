@@ -12,7 +12,7 @@ const store = {
                   "parent_id": "1011"
                },
                {
-                  "name": "Sound cards",
+                  "name": "Video cards",
                   "id": "1019",
                   "parent_id": "1011"
                },
@@ -2815,37 +2815,53 @@ const store = {
             ]
          }
       ],
+      max() {
+         const newArr = this.products.map(item => parseInt(item.price))
+         return Math.max(...newArr)
+      },
+      min() {
+         const newArr = this.products.map(item => parseInt(item.price))
+         return Math.min(...newArr)
+      },
    },
    getState() {
       return this._state
-   },
-   max(arrMax = [...this._state.products]) {
-      const newArr = arrMax.map(item => parseInt(item.price))
-      return Math.max(...newArr)
-   },
-   min(arrMin = [...this._state.products]) {
-      const newArr = arrMin.map(item => parseInt(item.price))
-      return Math.min(...newArr)
    },
    _renderMainTree() { },
    subscribe(observer) {
       this._renderMainTree = observer
    },
 
-   updateCategory(name) {
+   _updateCategory(name) {
       this._state.newinfo = name
       this._renderMainTree(this._state)
    },
 
-   addCategory() {
+   _addCategory() {
       const newCategory = {
          name: this._state.newinfo,
          id: String(parseInt(this._state.categories[this._state.categories.length - 1].id) + 1),
          items: [],
       }
       if (newCategory.name) { this._state.categories.push(newCategory) }
-      this.updateCategory('')
+      this._updateCategory('')
       this._renderMainTree(this._state)
+   },
+
+   dispatch(action) {
+      switch (action.type) {
+         case 'ADD-CATEGORY': {
+            this._addCategory()
+            break
+         }
+         case 'UPDATE-CATEGORY': {
+            this._updateCategory(action.valueName)
+            break
+         }
+         default: {
+            console.log('No one case')
+         }
+      }
    }
 }
 

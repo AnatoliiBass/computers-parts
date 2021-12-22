@@ -11,6 +11,7 @@ const FilterPrice = ({ min, max }) => {
       setValue(newValue)
    }
    const arrvalue = valuetext(value).split(',')
+   console.log(arrvalue, min, max);
    return (
       <div>
          <Title size="h6" seo="h5" description="Range prices" />
