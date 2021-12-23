@@ -1,4 +1,3 @@
-
 import { Route, Routes } from 'react-router-dom'
 import About from './About/About'
 import Contacts from './Contacts/Contacts'
@@ -14,7 +13,8 @@ const CONTACTS = "/contacts"
 const PRODUCTCARDS = "/productcards"
 const PRODUCTITEM = "/productcards/productitem"
 const Content = ({ state, dispatch }) => {
-   const categories = [...state.categories]
+   const categories = [...state.categories.categories.categories]
+
    return (
       <section className={content}>
          <Routes>

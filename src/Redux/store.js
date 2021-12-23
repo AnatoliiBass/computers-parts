@@ -2825,27 +2825,27 @@ const store = {
    getState() {
       return this._state
    },
-   _renderMainTree() { },
+   _callSubscribes() { },
    subscribe(observer) {
-      this._renderMainTree = observer
+      this._callSubscribes = observer
    },
 
-   max() {
-      const newArr = this._state.products.map(item => parseInt(item.price))
-      return Math.max(...newArr)
-   },
-   min() {
-      const newArr = this._state.products.map(item => parseInt(item.price))
-      return Math.min(...newArr)
-   },
+
 
    dispatch(action) {
       this._state.categories = categoryReducer(this._state.categories, action)
 
 
-      this._renderMainTree(this._state)
+      this._callSubscribes(this._state)
    }
 }
+const max = () => {
+   const newArr = store._state.products.map(item => parseInt(item.price))
+   return Math.max(...newArr)
+}
+const min = () => {
+   const newArr = store._state.products.map(item => parseInt(item.price))
+   return Math.min(...newArr)
+}
 
-
-export default store
+export { max, min }

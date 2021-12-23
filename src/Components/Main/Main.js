@@ -5,7 +5,7 @@ const Main = ({ state, dispatch, min, max }) => {
    return (<main className={container}>
       <div className={grid}>
          <Sidebar state={state} min={min} max={max} />
-         <Content state={state.categories} dispatch={dispatch} />
+         <Content state={state} dispatch={dispatch} />
       </div>
    </main>)
 }

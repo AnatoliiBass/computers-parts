@@ -7,14 +7,15 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
-import store from './Redux/store'
+import store from './Redux/reduxStore'
+import { max, min } from './Redux/store'
 
 
 let renderMainTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App state={state} dispatch={store.dispatch.bind(store)} min={store.min.bind(store)} max={store.max.bind(store)} />
+        <App state={state} dispatch={store.dispatch.bind(store)} min={min} max={max} />
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
@@ -22,4 +23,7 @@ let renderMainTree = (state) => {
 }
 
 renderMainTree(store.getState())
-store.subscribe(renderMainTree)
+store.subscribe(() => {
+  const state = store.getState()
+  renderMainTree(state)
+})

@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom"
 
 const AccordionItems = ({ infoArray }) => {
    return (
-      <>
-         {infoArray.map(item => (
+      <div>
+         {infoArray.categories.map(item => (
             <Accordion key={item.id}>
                <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
@@ -23,7 +23,7 @@ const AccordionItems = ({ infoArray }) => {
                </AccordionDetails>
             </Accordion>
          ))}
-      </>
+      </div>
    )
 }
 

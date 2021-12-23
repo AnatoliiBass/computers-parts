@@ -9,7 +9,9 @@ const AddCategories = ({ dispatch, info }) => {
    }
 
    const onCategoryChange = (event) => {
-      dispatch(updateCategoryCreator(event.target.value))
+      if (event.target.value.trim()) {
+         dispatch(updateCategoryCreator(event.target.value))
+      }
    }
    return (
       <div className={addcategory}>
