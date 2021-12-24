@@ -2832,13 +2832,14 @@ const categoryReducer = (state = initState, action) => {
             items: [],
          }
          if (newCategory.name) {
-            categories.newinfo = ''
+            updateCategoryCreator('')
             categories.categories.push(newCategory)
          }
          return state
       }
       case UPDATE_CATEGORY: {
          categories.newinfo = action.valueName
+         console.log(categories);
          return state
       }
       default: {

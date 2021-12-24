@@ -15,15 +15,15 @@ let renderMainTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App state={state} dispatch={store.dispatch.bind(store)} min={min} max={max} />
+        <App store={store} min={min} max={max} />
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
   )
 }
-
+window.store = store
 renderMainTree(store.getState())
 store.subscribe(() => {
-  const state = store.getState()
-  renderMainTree(state)
+
+  renderMainTree(store.getState())
 })

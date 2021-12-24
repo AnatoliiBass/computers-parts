@@ -1,17 +1,13 @@
 import { Button, TextField, Typography } from "@mui/material"
-import { addCategoryCreator, updateCategoryCreator } from "../../../Redux/Reducers/categoryReducer"
 import { addcategory } from './AddCategories.module.css'
 
-const AddCategories = ({ dispatch, info }) => {
-
-   const addNewCategory = () => {
-      dispatch(addCategoryCreator())
-   }
-
+const AddCategories = ({ addCategory, changeCategory, info }) => {
    const onCategoryChange = (event) => {
-      if (event.target.value.trim()) {
-         dispatch(updateCategoryCreator(event.target.value))
-      }
+      changeCategory(event.target.value.trim())
+      console.log(event.target.value);
+   }
+   const addNewCategory = () => {
+      addCategory()
    }
    return (
       <div className={addcategory}>

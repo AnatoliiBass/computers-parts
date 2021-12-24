@@ -1,10 +1,10 @@
 
 import { NavLink } from 'react-router-dom'
-import AddCategories from '../../../UI/AddCategories/AddCategories'
+import AddCategoriesContainer from '../../../UI/AddCategories/AddCategoriesContainer'
 import Title from '../../../UI/Title/Title'
 import { sectionBox } from './Sections.module.css'
 
-const Sections = ({ sections, btn, dispatch, info }) => {
+const Sections = ({ sections, btn, store }) => {
    const getUrl = (element) => {
       let url
       if (element === "Components") {
@@ -20,7 +20,7 @@ const Sections = ({ sections, btn, dispatch, info }) => {
    return (
       <div>
          <Title size="h3" seo="h1" description={sections[0]} />
-         <div>{(btn) ? (<AddCategories dispatch={dispatch} info={info} />) : ""}</div>
+         <div>{(btn) ? (<AddCategoriesContainer store={store} />) : ""}</div>
          <div className={sectionBox}>
             {elements}
          </div>
