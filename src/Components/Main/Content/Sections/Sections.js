@@ -4,7 +4,7 @@ import AddCategoriesContainer from '../../../UI/AddCategories/AddCategoriesConta
 import Title from '../../../UI/Title/Title'
 import { sectionBox } from './Sections.module.css'
 
-const Sections = ({ sections, btn, store }) => {
+const Sections = ({ sections, btn }) => {
    const getUrl = (element) => {
       let url
       if (element === "Components") {
@@ -20,7 +20,7 @@ const Sections = ({ sections, btn, store }) => {
    return (
       <div>
          <Title size="h3" seo="h1" description={sections[0]} />
-         <div>{(btn) ? (<AddCategoriesContainer store={store} />) : ""}</div>
+         <div>{(btn) ? (<AddCategoriesContainer />) : ""}</div>
          <div className={sectionBox}>
             {elements}
          </div>
