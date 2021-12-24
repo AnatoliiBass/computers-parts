@@ -1,29 +1,25 @@
 import AddCategories from "./AddCategories"
 import { addCategoryCreator, updateCategoryCreator } from "../../../Redux/Reducers/categoryReducer"
-import StoreContext from "../../../StoreContext"
+import { connect } from "react-redux"
 
-const AddCategoriesContainer = () => {
 
-   return (
-      <StoreContext.Consumer>{
-         (store) => {
-            const info = store.getState().categories.categories.newinfo
-            const addNewCategory = () => {
-               store.dispatch(addCategoryCreator())
-               onCategoryChange('')
-            }
-
-            const onCategoryChange = (text) => {
-               store.dispatch(updateCategoryCreator(text))
-            }
-
-            return (
-               <AddCategories addCategory={addNewCategory} changeCategory={onCategoryChange} info={info} />
-            )
-         }
-      }
-      </StoreContext.Consumer>
-   )
+let mapStateToProps = (state) => {
+   return {
+      info: state.categories.categories.newinfo
+   }
 }
+
+let mapDispatchToProps = (dispatch) => {
+   return {
+      addCategory: () => {
+         dispatch(addCategoryCreator())
+      },
+      changeCategory: (text) => {
+         dispatch(updateCategoryCreator(text))
+      }
+   }
+}
+
+const AddCategoriesContainer = connect(mapStateToProps, mapDispatchToProps)(AddCategories)
 
 export default AddCategoriesContainer

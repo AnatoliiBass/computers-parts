@@ -2823,7 +2823,10 @@ const initState = {
 }
 
 const categoryReducer = (state = initState, action) => {
+
    const categories = state.categories
+   const names = categories.categories.map(item => item.name)
+
    switch (action.type) {
       case ADD_CATEGORY: {
          const newCategory = {
@@ -2831,16 +2834,29 @@ const categoryReducer = (state = initState, action) => {
             id: String(parseInt(categories.categories[categories.categories.length - 1].id) + 1),
             items: [],
          }
-         if (newCategory.name) {
-            updateCategoryCreator('')
-            categories.categories.push(newCategory)
+         console.log(newCategory);
+         let copy
+         if ((newCategory.name) && !(names.includes(newCategory.name))) {
+            copy = {
+               ...state,
+               categories: {
+                  ...state.categories,
+                  newinfo: '',
+                  categories: [...state.categories.categories, newCategory]
+               }
+            }
          }
-         return state
+         console.log(copy);
+         return copy ?? state
       }
       case UPDATE_CATEGORY: {
-         categories.newinfo = action.valueName
-         console.log(categories);
-         return state
+         return {
+            ...state,
+            categories: {
+               ...state.categories,
+               newinfo: action.valueName
+            }
+         }
       }
       default: {
          return state

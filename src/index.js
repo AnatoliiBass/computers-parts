@@ -9,16 +9,15 @@ import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 import store from './Redux/reduxStore'
 import { max, min } from './Redux/store'
-import StoreContext from './StoreContext'
-
+import { Provider } from 'react-redux'
 
 let renderMainTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <StoreContext.Provider value={store}>
+        <Provider store={store}>
           <App store={store} min={min} max={max} />
-        </StoreContext.Provider>
+        </Provider>
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
