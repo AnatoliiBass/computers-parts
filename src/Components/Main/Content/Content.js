@@ -12,19 +12,16 @@ const ABOUT = "/about"
 const CONTACTS = "/contacts"
 const PRODUCTCARDS = "/productcards"
 const PRODUCTITEM = "/productcards/productitem"
-const Content = ({ store }) => {
-   const categories = [...store.getState().categories.categories.categories].map(item => item.name)
-   const state = store.getState().categories
-
+const Content = ({ products, categories }) => {
    return (
       <section className={content}>
          <Routes>
-            <Route path={BASEURL} element={<Sections sections={["Computer parts", categories]} btn={true}/>} />
+            <Route path={BASEURL} element={<Sections sections={["Computer parts", categories]} btn={true} />} />
             <Route path={COMPONENTS} element={<Sections sections={["Components", ["Sound cards", "Video cards"]]} />} />
             <Route path={NETWORK} element={<Sections sections={["Network hardware", ["Modems", "Routers"]]} />} />
             <Route path={ABOUT} element={<About />} />
             <Route path={CONTACTS} element={<Contacts />} />
-            <Route path={PRODUCTCARDS} element={<ProductCards arrObjects={state.products} />} />
+            <Route path={PRODUCTCARDS} element={<ProductCards arrObjects={products} />} />
             <Route path={PRODUCTITEM} element={<ProductItem name="Asus NVidia SX 2345 LD" />} />
          </Routes>
       </section >)

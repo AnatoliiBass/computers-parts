@@ -2845,8 +2845,15 @@ const categoryReducer = (state = initState, action) => {
                   categories: [...state.categories.categories, newCategory]
                }
             }
+         } else if (names.includes(newCategory.name)) {
+            copy = {
+               ...state,
+               categories: {
+                  ...state.categories,
+                  newinfo: ''
+               }
+            }
          }
-         console.log(copy);
          return copy ?? state
       }
       case UPDATE_CATEGORY: {

@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom"
 const AccordionItems = ({ infoArray }) => {
    return (
       <div>
-         {infoArray.categories.map(item => (
+         {infoArray.map(item => (
             <Accordion key={item.id}>
                <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
