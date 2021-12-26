@@ -6,7 +6,7 @@ import Content from "./Content"
 let mapStateToProps = (state) => {
    return {
       products: state.categories.products,
-      categories: [...state.categories.categories.categories].map(item => item.name)
+      categories: state.categories.categories.categories
    }
 }
 

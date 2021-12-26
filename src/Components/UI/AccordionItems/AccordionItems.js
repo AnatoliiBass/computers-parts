@@ -16,7 +16,7 @@ const AccordionItems = ({ infoArray }) => {
                   {
                      item.items.map(element => (
                         <AccordionSummary key={element.id}>
-                           <NavLink to="/productcards"><Typography>{element.name}</Typography></NavLink>
+                           <NavLink to={`/parts/${item.id}/${element.id}`}><Typography>{element.name}</Typography></NavLink>
                         </AccordionSummary>
                      ))
                   }

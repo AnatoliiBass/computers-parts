@@ -2,27 +2,28 @@ import { Route, Routes } from 'react-router-dom'
 import About from './About/About'
 import Contacts from './Contacts/Contacts'
 import { content } from './Content.module.css'
+import HomeSection from './HomeSection/HomeSection'
 import ProductCards from './ProductCards/ProductCards'
 import ProductItem from './ProductItem/ProductItem'
 import Sections from './Sections/Sections'
 const BASEURL = "/"
-const COMPONENTS = "/components"
-const NETWORK = "/network"
+const PARTS = "/parts/:id"
 const ABOUT = "/about"
 const CONTACTS = "/contacts"
-const PRODUCTCARDS = "/productcards"
-const PRODUCTITEM = "/productcards/productitem"
+const PRODUCTCARDS = "/parts/:id/:subid"
+const PRODUCTITEM = "/parts/:id/:subid/:specialid"
 const Content = ({ products, categories }) => {
+   const names = categories.map(item => ({ name: item.name, id: item.id }))
+   const subnames = categories.map(item => item.items).flat()
    return (
       <section className={content}>
          <Routes>
-            <Route path={BASEURL} element={<Sections sections={["Computer parts", categories]} btn={true} />} />
-            <Route path={COMPONENTS} element={<Sections sections={["Components", ["Sound cards", "Video cards"]]} />} />
-            <Route path={NETWORK} element={<Sections sections={["Network hardware", ["Modems", "Routers"]]} />} />
+            <Route path={BASEURL} element={<HomeSection sections={names} btn={true} />} />
+            <Route path={PARTS} element={<Sections sections={categories} />} />
             <Route path={ABOUT} element={<About />} />
             <Route path={CONTACTS} element={<Contacts />} />
-            <Route path={PRODUCTCARDS} element={<ProductCards arrObjects={products} />} />
-            <Route path={PRODUCTITEM} element={<ProductItem name="Asus NVidia SX 2345 LD" />} />
+            <Route path={PRODUCTCARDS} element={<ProductCards arrObjects={products} subnames={subnames} />} />
+            <Route path={PRODUCTITEM} element={<ProductItem products={products} />} />
          </Routes>
       </section >)
 }

@@ -5,7 +5,6 @@ import Sidebar from "./Sidebar"
 
 
 let mapStateToProps = (state) => {
-   console.log(state);
    return {
       products: state.categories.products,
       categories: state.categories.categories.categories,
