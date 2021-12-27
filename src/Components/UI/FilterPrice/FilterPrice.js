@@ -2,13 +2,14 @@ import { Slider, Typography } from "@mui/material"
 import React from "react"
 import Title from "../Title/Title"
 
-const FilterPrice = ({ min, max }) => {
+const FilterPrice = ({ min, max, getCurrentMinMax }) => {
    function valuetext(value) {
       return `${value}`
    }
    const [value, setValue] = React.useState([min, max])
    const handleChange = (event, newValue) => {
       setValue(newValue)
+      getCurrentMinMax(newValue)
    }
    const arrvalue = valuetext(value).split(',')
    return (

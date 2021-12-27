@@ -1,0 +1,12 @@
+.filter {
+   border: 2px solid rgb(22, 74, 83);
+   border-radius: 2%;
+   padding: 10px;
+}
+.button {
+   margin-top: 10px;
+}
+.link {
+   text-decoration: none;
+   color: inherit;
+}

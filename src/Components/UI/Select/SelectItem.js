@@ -1,12 +1,13 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import Title from "../Title/Title"
-import React from "react";
+import { useState } from "react"
 
-const SelectItem = ({ arrBrands }) => {
-   const [brand, setBrand] = React.useState('');
+const SelectItem = ({ arrBrands, getBrand }) => {
+   const [brand, setBrand] = useState('All')
 
    const handleChange = (event) => {
-      setBrand(event.target.value);
+      setBrand(event.target.value)
+      getBrand(event.target.value)
    };
 
    return (
@@ -17,6 +18,7 @@ const SelectItem = ({ arrBrands }) => {
             <Select
                labelId="select-label"
                id="simple-select"
+               defaultValue="All"
                value={brand}
                label="Brands"
                onChange={handleChange}

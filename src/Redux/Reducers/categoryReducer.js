@@ -2834,7 +2834,6 @@ const categoryReducer = (state = initState, action) => {
             id: String(parseInt(categories.categories[categories.categories.length - 1].id) + 1),
             items: [],
          }
-         console.log(newCategory);
          let copy
          if ((newCategory.name) && !(names.includes(newCategory.name))) {
             copy = {

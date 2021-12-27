@@ -1,6 +1,7 @@
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { NavLink } from "react-router-dom"
+import { link } from './AccordionItems.module.css'
 
 const AccordionItems = ({ infoArray }) => {
    return (
@@ -16,7 +17,7 @@ const AccordionItems = ({ infoArray }) => {
                   {
                      item.items.map(element => (
                         <AccordionSummary key={element.id}>
-                           <NavLink to={`/parts/${item.id}/${element.id}`}><Typography>{element.name}</Typography></NavLink>
+                           <NavLink className={link} to={`/parts/${item.id}/${element.id}`}><Typography>{element.name}</Typography></NavLink>
                         </AccordionSummary>
                      ))
                   }
