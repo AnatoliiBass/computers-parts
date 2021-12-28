@@ -22,9 +22,3 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-// window.store = store
-// renderMainTree(store.getState())
-// store.subscribe(() => {
-
-//   renderMainTree(store.getState())
-// })
