@@ -22,3 +22,7 @@
 .button:hover {
    color: rgb(144, 192, 164);
 }
+
+[data-amplify-authenticator][data-variation="modal"] {
+   z-index: 10 !important;
+}

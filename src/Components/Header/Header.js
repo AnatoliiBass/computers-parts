@@ -5,13 +5,30 @@ import { Button } from '@mui/material'
 import Session from '../UI/Session/Session'
 import Cart from '../UI/Cart/Cart'
 import { NavLink } from 'react-router-dom'
-import FormAuth from '../UI/FormAuth/FormAuth'
-import { Authenticator, withAuthenticator } from '@aws-amplify/ui-react'
-const Header = ({ getLogout }) => {
-   const user = localStorage.getItem('CognitoIdentityServiceProvider.35pot0bdlttp9on7co0ihbgvqn.LastAuthUser').toUpperCase()
-   // const signOut = () => {
-   //    getLogout(true)
-   // }
+import { useState } from 'react'
+import { Amplify } from 'aws-amplify'
+import awsExports from './../../aws-exports'
+import { Authenticator } from '@aws-amplify/ui-react'
+import '@aws-amplify/ui-react/styles.css'
+Amplify.configure(awsExports)
+const Header = () => {
+   const getUser = () => {
+      return localStorage.getItem('CognitoIdentityServiceProvider.35pot0bdlttp9on7co0ihbgvqn.LastAuthUser')?.toUpperCase()
+   }
+   const [user, setUser] = useState(getUser())
+   const [clickLogin, setClickLogin] = useState(false)
+   const helperAfterAuth = () => {
+      setUser(getUser())
+   }
+   const helperSetUser = () => {
+      localStorage.clear()
+      setUser(getUser())
+      setClickLogin(false)
+   }
+   const helperOpenAuth = () => {
+      setClickLogin(true)
+      setUser(getUser())
+   }
    return (<header className={bg}>
       <div className={container}>
          <div className={flex}>
@@ -19,22 +36,19 @@ const Header = ({ getLogout }) => {
             <NavMenu />
          </div>
          <div className={flex}>
-            {/* <FormAuth /> */}
-            <Session user={user} />
-            {/* <Session user="UserName" />
-            <Session user="Admin" /> */}
-            {/* <NavLink to="/auth"><Button className={button} color="inherit">Log in</Button></NavLink> */}
+            <Session user={user ? user : 'Guest'} />
 
-
-            <NavLink to="/auth"><Button className={button} color="inherit">Log out</Button></NavLink>
-
-
-
-
+            {clickLogin ? <Authenticator style={{ position: "absolute", zIndex: 50 }} variation='modal' >{() => (
+               <>
+                  <Button onClick={helperSetUser} className={button} color="inherit">Log out</Button>
+                  {helperAfterAuth()}
+               </>
+            )}</Authenticator> : <>{user ? <Button onClick={helperSetUser} className={button} color="inherit">Log out</Button> :
+               <Button onClick={helperOpenAuth} className={button} color="inherit">Log in</Button>}</>}
             <Cart total={1} />
          </div>
       </div>
-   </header>)
+   </header >)
 }
 
-export default withAuthenticator(Header)
+export default Header
