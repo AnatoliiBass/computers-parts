@@ -1,0 +1,23 @@
+.listUsers {
+   display: flex;
+   flex-direction: column;
+}
+
+.itemUser {
+   display: flex;
+   justify-content: space-between;
+   border: 2px #000 solid;
+   border-radius: 2%;
+   margin: 5px;
+   padding: 5px;
+}
+
+.infoUser {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.avatar {
+   margin-bottom: 10px;
+}

@@ -5600,5 +5600,40 @@
             }
          ]
       }
+   ],
+   "users": [
+      {
+         "id": 1,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Tolyan",
+         "status": "Trainee",
+         "location": {
+            "city": "Chercassy",
+            "country": "Ukraine"
+         }
+      },
+      {
+         "id": 2,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Kolyan",
+         "status": "QA",
+         "location": {
+            "city": "Tokio",
+            "country": "Japan"
+         }
+      },
+      {
+         "id": 3,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      }
    ]
 }

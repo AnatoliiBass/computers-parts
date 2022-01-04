@@ -7,6 +7,7 @@ const NavMenu = () => {
          <NavLink to="/"><MenuItem>Home</MenuItem></NavLink>
          <NavLink to="/about"><MenuItem>About</MenuItem></NavLink>
          <NavLink to="/contacts"><MenuItem>Contacts</MenuItem></NavLink>
+         <NavLink to="/users"><MenuItem>Users</MenuItem></NavLink>
       </nav>
    )
 }

@@ -11,14 +11,13 @@ const FilterCards = ({ arrObjects, subnames }) => {
       newArr = arrObjects.filter(item => (item.manufacturer === arrFilter[0]))
    } else { newArr = arrObjects }
    newArr = newArr.filter(item => (+item.price >= +arrFilter[1]) && (+item.price <= +arrFilter[2]))
-   console.log(newArr);
    return (
       <section>
          <Title size="h3" seo="h2" description="Filtering result" />
          {newArr.length === 0 ? (<Typography variant="h5" component="h5">Sorry, no result...</Typography>) :
             (<div className={style.flex}>
-               {newArr.map(item => (
-                  <Card sx={{ maxWidth: 200 }} key={item.sku} className={style.box}>
+               {newArr.map((item, index) => (
+                  <Card sx={{ maxWidth: 200 }} key={index + 'filter_' + item.sku} className={style.box}>
                      <CardContent>
                         <Typography variant="h5" component="h5">
                            {item.name}

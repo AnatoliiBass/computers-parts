@@ -24,7 +24,7 @@ const SelectItem = ({ arrBrands, getBrand }) => {
                onChange={handleChange}
             >
                {arrBrands.map((item, index) => (
-                  <MenuItem value={item} key={Math.floor(Math.random() * 300 + index)}>{item}</MenuItem>
+                  <MenuItem value={item} key={Date.now() * 300 + index}>{item}</MenuItem>
                ))}
             </Select>
          </FormControl>
