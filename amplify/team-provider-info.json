@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-computersparts-dev-150515-authRole",
+      "UnauthRoleArn": "arn:aws:iam::341509529311:role/amplify-computersparts-dev-150515-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::341509529311:role/amplify-computersparts-dev-150515-authRole",
+      "Region": "eu-west-3",
+      "DeploymentBucketName": "amplify-computersparts-dev-150515-deployment",
+      "UnauthRoleName": "amplify-computersparts-dev-150515-unauthRole",
+      "StackName": "amplify-computersparts-dev-150515",
+      "StackId": "arn:aws:cloudformation:eu-west-3:341509529311:stack/amplify-computersparts-dev-150515/cf55a560-67de-11ec-8f32-0e66425af77c",
+      "AmplifyAppId": "dv0y4x10ykczw"
+    },
+    "categories": {
+      "auth": {
+        "computersparts6ac91526": {}
+      }
+    }
+  }
+}

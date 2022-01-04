@@ -1,11 +1,12 @@
+import ContentContainer from './Content/ContentContainer'
 import { grid, container } from './Main.module.css'
-import Sidebar from './Sidebar/Sidebar'
-import Content from './Content/Content'
+import SidebarContainer from './Sidebar/SidebarContainer'
+
 const Main = () => {
    return (<main className={container}>
       <div className={grid}>
-         <Sidebar />
-         <Content />
+         <SidebarContainer />
+         <ContentContainer />
       </div>
    </main>)
 }
