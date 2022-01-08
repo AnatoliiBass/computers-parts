@@ -11,8 +11,8 @@ const ProductCards = ({ arrObjects, subnames }) => {
       <section>
          <Title size="h3" seo="h2" description={name} />
          <div className={style.flex}>
-            {elements.map(item => (
-               <Card sx={{ maxWidth: 200 }} key={item.sku} className={style.box}>
+            {elements.map((item, index) => (
+               <Card sx={{ maxWidth: 200 }} key={item.sku + index} className={style.box}>
                   <CardContent>
                      <Typography variant="h5" component="h5">
                         {item.name}

@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 
 let mapStateToProps = (state) => {
    return {
-      info: state.categories.categories.newinfo
+      info: state.categories.newinfo
    }
 }
 

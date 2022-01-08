@@ -2,3 +2,19 @@
    display: flex;
    text-transform: uppercase;
 }
+
+.link {
+   text-decoration: none;
+}
+
+@media (max-width: 900px) {
+   .flex {
+      flex-direction: column;
+   }
+   .link:hover {
+      text-decoration: underline;
+   }
+   .link {
+      color: #000;
+   }
+}
