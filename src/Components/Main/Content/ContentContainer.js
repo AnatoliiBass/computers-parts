@@ -1,21 +1,16 @@
 
 import { connect } from "react-redux"
 import Content from "./Content"
-
+import { setActiveCategory } from '../../../Redux/Reducers/categoryReducer'
 
 let mapStateToProps = (state) => {
    return {
-      products: state.categories.products,
+      products: state.products.products,
       categories: state.categories.categories
    }
 }
 
-let mapDispatchToProps = (dispatch) => {
-   return {
 
-   }
-}
-
-const ContentContainer = connect(mapStateToProps, mapDispatchToProps)(Content)
+const ContentContainer = connect(mapStateToProps, { setActiveCategory })(Content)
 
 export default ContentContainer

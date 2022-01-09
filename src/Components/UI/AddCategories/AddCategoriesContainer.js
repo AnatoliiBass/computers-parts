@@ -1,5 +1,5 @@
 import AddCategories from "./AddCategories"
-import { addCategoryCreator, updateCategoryCreator } from "../../../Redux/Reducers/categoryReducer"
+import { addCategory, updateCategory } from "../../../Redux/Reducers/categoryReducer"
 import { connect } from "react-redux"
 
 
@@ -9,17 +9,7 @@ let mapStateToProps = (state) => {
    }
 }
 
-let mapDispatchToProps = (dispatch) => {
-   return {
-      addCategory: () => {
-         dispatch(addCategoryCreator())
-      },
-      changeCategory: (text) => {
-         dispatch(updateCategoryCreator(text))
-      }
-   }
-}
 
-const AddCategoriesContainer = connect(mapStateToProps, mapDispatchToProps)(AddCategories)
+const AddCategoriesContainer = connect(mapStateToProps, {addCategory, updateCategory})(AddCategories)
 
 export default AddCategoriesContainer

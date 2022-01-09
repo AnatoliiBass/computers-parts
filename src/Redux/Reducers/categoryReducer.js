@@ -1,36 +1,28 @@
 const ADD_CATEGORY = 'ADD_CATEGORY'
 const UPDATE_CATEGORY = 'UPDATE-CATEGORY'
 const SET_CATEGORY = 'SET_CATEGORY'
-const SET_BRANDS = 'SET_BRANDS'
-const SET_PRODUCTS = 'SET_PRODUCTS'
+const SET_ACTIVE_CATEGORY = 'SET_ACTIVE_CATEGORY'
 
 let initState = {
    categories: [],
-   brands: [],
-   products: [],
-   newinfo: ""
+   newinfo: "",
+   activeCategory: ''
 }
 
 
 const categoryReducer = (state = initState, action) => {
 
    switch (action.type) {
+      case SET_ACTIVE_CATEGORY: {
+         return {
+            ...state,
+            activeCategory: action.category
+         }
+      }
       case SET_CATEGORY: {
          return {
             ...state,
             categories: action.data
-         }
-      }
-      case SET_BRANDS: {
-         return {
-            ...state,
-            brands: action.data
-         }
-      }
-      case SET_PRODUCTS: {
-         return {
-            ...state,
-            products: action.data
          }
       }
       case ADD_CATEGORY: {
@@ -66,10 +58,10 @@ const categoryReducer = (state = initState, action) => {
       }
    }
 }
-export const addCategoryCreator = () => ({ type: ADD_CATEGORY })
-export const updateCategoryCreator = (name) => ({ type: UPDATE_CATEGORY, valueName: name })
-export const setCategoriesCreator = (data) => ({ type: SET_CATEGORY, data })
-export const setBrandsCreator = (data) => ({ type: SET_BRANDS, data })
-export const setProductsCreator = (data) => ({ type: SET_PRODUCTS, data })
+
+export const setActiveCategory = (category) => ({ type: SET_ACTIVE_CATEGORY, category })
+export const addCategory = () => ({ type: ADD_CATEGORY })
+export const updateCategory = (name) => ({ type: UPDATE_CATEGORY, valueName: name })
+export const setCategories = (data) => ({ type: SET_CATEGORY, data })
 
 export default categoryReducer

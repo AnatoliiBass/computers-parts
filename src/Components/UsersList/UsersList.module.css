@@ -18,6 +18,9 @@
    flex-direction: column;
    justify-content: space-between;
 }
+.infoUser:last-child {
+   align-items: flex-end;
+}
 
 .avatar {
    margin-bottom: 10px;
@@ -29,4 +32,5 @@
 .btn {
    color: inherit !important;
    display: block !important;
+   border: 1px solid inherit !important;
 }

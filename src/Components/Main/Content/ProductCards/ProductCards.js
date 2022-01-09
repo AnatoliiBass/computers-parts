@@ -1,17 +1,20 @@
-import { Button, Card, CardActions, CardContent, Typography } from "@mui/material"
+import { Button, Card, CardActions, CardContent, Pagination, Skeleton, Stack, Typography } from "@mui/material"
 import style from "./ProductCards.module.css"
 import Title from "../../../UI/Title/Title"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { NavLink, useParams } from "react-router-dom"
-const ProductCards = ({ arrObjects, subnames }) => {
+const ProductCards = (props) => {
    const { id, subid } = useParams()
-   const elements = arrObjects.filter(item => item.category_id === subid)
-   const name = subnames.filter(item => item.id === subid)[0].name
+   const name = props.subnames.filter(item => item.id === subid)[0].name
+   const countPages = Math.ceil(props.totalProducts / props.sizePage)
    return (
       <section>
          <Title size="h3" seo="h2" description={name} />
+         <Stack spacing={2}>
+            <Pagination count={countPages} page={props.currentPage} onChange={props.helperFunc} />
+         </Stack>
          <div className={style.flex}>
-            {elements.map((item, index) => (
+            {props.products.map((item, index) => (props.isFetching ? <Card sx={{ maxWidth: 200 }} key={Date.now() + index} className={style.box}><Skeleton variant="rectangular" width={210} height={400} animation="wave" /></Card> :
                <Card sx={{ maxWidth: 200 }} key={item.sku + index} className={style.box}>
                   <CardContent>
                      <Typography variant="h5" component="h5">
