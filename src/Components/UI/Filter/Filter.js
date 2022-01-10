@@ -16,13 +16,12 @@ const Filter = ({ min, max, brands }) => {
    const getBrand = (currentBrand) => {
       setBrand(currentBrand)
    }
-
    return (
       <div className={filter}>
          <FilterPrice min={min} max={max} getCurrentMinMax={getCurrentMinMax} />
          <SelectItem arrBrands={newBrands} getBrand={getBrand} />
          <div className={button}>
-            <NavLink className={link} to={`/parts/filter/${brand}&${value[0] === Infinity ? min : value[0]}&${value[1] === -Infinity ? max : value[1]}`}>
+            <NavLink className={link} to={`/parts/filter/${brand}&${value[0] ? value[0] : min}&${value[1] ? value[1] : max}`}>
                <Button variant="outlined" color="inherit">Search</Button></NavLink>
          </div>
       </div >
