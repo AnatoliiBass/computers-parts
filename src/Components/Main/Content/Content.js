@@ -4,17 +4,19 @@ import Contacts from './Contacts/Contacts'
 import { content } from './Content.module.css'
 import FilterCards from './FilterCards/FilterCards'
 import HomeSection from './HomeSection/HomeSection'
-import ProductCards from './ProductCards/ProductCards'
 import ProductItem from './ProductItem/ProductItem'
 import Sections from './Sections/Sections'
+import UsersListContainer from '../../UsersList/UsersListContainer'
+import ProductCardsContainer from './ProductCards/ProductCardsContainer'
 const BASEURL = "/"
 const PARTS = "/parts/:id"
 const ABOUT = "/about"
 const CONTACTS = "/contacts"
+const USERS = "/users"
 const PRODUCTCARDS = "/parts/:id/:subid"
 const PRODUCTITEM = "/parts/:id/:subid/:specialid"
 const FILTER = "/parts/filter/:obj"
-const Content = ({ products, categories }) => {
+const Content = ({ products, categories, setActiveCategory }) => {
    const names = categories.map(item => ({ name: item.name, id: item.id }))
    const subnames = categories.map(item => item.items).flat()
 
@@ -22,10 +24,11 @@ const Content = ({ products, categories }) => {
       <section className={content}>
          <Routes>
             <Route path={BASEURL} element={<HomeSection sections={names} btn={true} />} />
-            <Route path={PARTS} element={<Sections sections={categories} />} />
+            <Route path={PARTS} element={<Sections sections={categories} setActiveCategory={setActiveCategory} />} />
             <Route path={ABOUT} element={<About />} />
             <Route path={CONTACTS} element={<Contacts />} />
-            <Route path={PRODUCTCARDS} element={<ProductCards arrObjects={products} subnames={subnames} />} />
+            <Route path={USERS} element={<UsersListContainer />} />
+            <Route path={PRODUCTCARDS} element={<ProductCardsContainer />} />
             <Route path={PRODUCTITEM} element={<ProductItem products={products} />} />
             <Route path={FILTER} element={<FilterCards arrObjects={products} subnames={subnames} />} />
          </Routes>

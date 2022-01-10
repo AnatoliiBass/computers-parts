@@ -11,14 +11,13 @@ const FilterCards = ({ arrObjects, subnames }) => {
       newArr = arrObjects.filter(item => (item.manufacturer === arrFilter[0]))
    } else { newArr = arrObjects }
    newArr = newArr.filter(item => (+item.price >= +arrFilter[1]) && (+item.price <= +arrFilter[2]))
-   console.log(newArr);
    return (
       <section>
          <Title size="h3" seo="h2" description="Filtering result" />
          {newArr.length === 0 ? (<Typography variant="h5" component="h5">Sorry, no result...</Typography>) :
             (<div className={style.flex}>
-               {newArr.map(item => (
-                  <Card sx={{ maxWidth: 200 }} key={item.sku} className={style.box}>
+               {newArr.map((item, index) => (
+                  <Card sx={{ maxWidth: 200 }} key={index + 'filter_' + item.sku} className={style.box}>
                      <CardContent>
                         <Typography variant="h5" component="h5">
                            {item.name}
@@ -30,7 +29,8 @@ const FilterCards = ({ arrObjects, subnames }) => {
                      <CardActions className={style.bottom}>
                         <div><Typography>{`Price: ${item.price} $`}</Typography></div>
                         <div className={style.buttons}>
-                           <NavLink to={`/parts/${subnames.filter(i => i.id === item.category_id)[0].parent_id}/${item.category_id}/${item.sku}`}><Button size="small" color="inherit">See More...</Button></NavLink>
+                           <NavLink to={`/parts/${subnames.filter(i => i.id === item.category_id)[0].parent_id}/${item.category_id}/${item.sku}`}>
+                              <Button size="small" color="inherit">See More...</Button></NavLink>
                            <Button size="small" color="inherit"><ShoppingCartIcon /></Button>
                         </div>
                      </CardActions>

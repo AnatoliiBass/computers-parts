@@ -1,9 +1,9 @@
 import { Button, TextField, Typography } from "@mui/material"
 import { addcategory } from './AddCategories.module.css'
 
-const AddCategories = ({ addCategory, changeCategory, info }) => {
+const AddCategories = ({ addCategory, updateCategory, info }) => {
    const onCategoryChange = (event) => {
-      changeCategory(event.target.value.trim())
+      updateCategory(event.target.value.trim())
    }
    const addNewCategory = () => {
       addCategory()

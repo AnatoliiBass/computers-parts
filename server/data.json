@@ -1,41 +1,38 @@
 {
-   "categories": {
-      "newinfo": "",
-      "categories": [
-         {
-            "name": "Components",
-            "id": "1011",
-            "items": [
-               {
-                  "name": "Sound cards",
-                  "id": "1018",
-                  "parent_id": "1011"
-               },
-               {
-                  "name": "Video cards",
-                  "id": "1019",
-                  "parent_id": "1011"
-               }
-            ]
-         },
-         {
-            "name": "Network hardware",
-            "id": "1027",
-            "items": [
-               {
-                  "name": "Modems",
-                  "id": "1029",
-                  "parent_id": "1027"
-               },
-               {
-                  "name": "Routers",
-                  "id": "1030",
-                  "parent_id": "1027"
-               }
-            ]
-         }
-      ]
-   },
+   "categories": [
+      {
+         "name": "Components",
+         "id": "1011",
+         "items": [
+            {
+               "name": "Sound cards",
+               "id": "1018",
+               "parent_id": "1011"
+            },
+            {
+               "name": "Video cards",
+               "id": "1019",
+               "parent_id": "1011"
+            }
+         ]
+      },
+      {
+         "name": "Network hardware",
+         "id": "1027",
+         "items": [
+            {
+               "name": "Modems",
+               "id": "1029",
+               "parent_id": "1027"
+            },
+            {
+               "name": "Routers",
+               "id": "1030",
+               "parent_id": "1027"
+            }
+         ]
+      }
+   ],
    "brands": [
       "Creative",
       "NAD",
@@ -5599,6 +5596,228 @@
                "url": "http://magazilla.ru/jpg_zoom1/1270019.jpg"
             }
          ]
+      }
+   ],
+   "users": [
+      {
+         "id": 1,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Tolyan",
+         "status": "Trainee",
+         "location": {
+            "city": "Chercassy",
+            "country": "Ukraine"
+         }
+      },
+      {
+         "id": 2,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Kolyan",
+         "status": "QA",
+         "location": {
+            "city": "Tokio",
+            "country": "Japan"
+         }
+      },
+      {
+         "id": 3,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 4,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 5,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 6,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 7,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 8,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 9,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 10,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 11,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 12,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 13,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 14,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 15,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 16,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 17,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 18,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 19,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
+      },
+      {
+         "id": 20,
+         "url": "./avatar.jpg",
+         "followed": false,
+         "name": "Bodya",
+         "status": "Senior",
+         "location": {
+            "city": "New York",
+            "country": "USA"
+         }
       }
    ]
 }

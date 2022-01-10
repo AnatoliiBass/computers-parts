@@ -1,15 +1,13 @@
 import { bg, flex, container, button } from './Header.module.css'
-import Logo from '../UI/Logo/Logo'
-import NavMenu from '../UI/NavMenu/NavMenu'
 import { Button } from '@mui/material'
 import Session from '../UI/Session/Session'
 import Cart from '../UI/Cart/Cart'
-import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import { Amplify } from 'aws-amplify'
 import awsExports from './../../aws-exports'
 import { Authenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
+import ResponsiveAppBar from '../UI/AppBar/ResponsiveAppBar'
 Amplify.configure(awsExports)
 const Header = () => {
    const getUser = () => {
@@ -32,8 +30,7 @@ const Header = () => {
    return (<header className={bg}>
       <div className={container}>
          <div className={flex}>
-            <NavLink to="/"><Logo /></NavLink>
-            <NavMenu />
+            <ResponsiveAppBar />
          </div>
          <div className={flex}>
             <Session user={user ? user : 'Guest'} />

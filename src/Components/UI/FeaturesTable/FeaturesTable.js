@@ -14,7 +14,7 @@ const FeaturesTable = ({ features }) => {
             <TableBody>
                {features.map((row, index) => (
                   <TableRow
-                     key={Date.now() + index}
+                     key={Date.now() * 20 + index}
                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
                      <TableCell component="th" scope="row">

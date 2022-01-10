@@ -1,23 +1,23 @@
 import { Slider, Typography } from "@mui/material"
-import React from "react"
+import { useState } from "react"
 import Title from "../Title/Title"
 
 const FilterPrice = ({ min, max, getCurrentMinMax }) => {
    function valuetext(value) {
       return `${value}`
    }
-   const [value, setValue] = React.useState([min, max])
+   const [value, setValue] = useState([min, max])
    const handleChange = (event, newValue) => {
       setValue(newValue)
       getCurrentMinMax(newValue)
    }
-   const arrvalue = valuetext(value).split(',')
    return (
       <div>
          <Title size="h6" seo="h5" description="Range prices" />
          <Slider
+            defaultValue={[min, max]}
             getAriaLabel={() => 'Price range'}
-            value={value}
+            value={value[0] && value[1] ? value : [min, max]}
             onChange={handleChange}
             getAriaValueText={valuetext}
             valueLabelDisplay="auto"
@@ -25,7 +25,7 @@ const FilterPrice = ({ min, max, getCurrentMinMax }) => {
             min={min}
             max={max}
          />
-         <Typography>From {arrvalue[0]} to {arrvalue[1]} $</Typography>
+         <Typography>{`From ${value[0] ? value[0] : min}$ to ${value[1] ? value[1] : max}$`}</Typography>
       </div>
    )
 }
