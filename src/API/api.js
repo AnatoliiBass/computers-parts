@@ -1,6 +1,5 @@
 import axios from "axios"
 
-
 const URL = 'http://localhost:3013/'
 
 const instanceProducts = axios.create({
@@ -45,6 +44,6 @@ export const apiGetUsers = () => {
 }
 
 export const apiGetUsersParts = (currentPage, sizePage) => {
-   return instanceUsers.get(`?_page = ${currentPage}& _limit=${sizePage}`)
+   return instanceUsers.get(`?_page=${currentPage}&_limit=${sizePage}`)
       .then(responce => responce.data)
 }
