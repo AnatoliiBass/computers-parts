@@ -1,3 +1,7 @@
+import { apiGetBrands, apiGetCategories, apiGetProducts, apiGetProductsActive, apiGetProductsParts } from "../../API/api"
+import { setBrands } from "./brandsReducer"
+import { setCategories } from "./categoryReducer"
+
 const SET_PRODUCTS = 'SET_PRODUCTS'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_PRODUCTS = 'SET_TOTAL_USERS'
@@ -59,5 +63,31 @@ export const setProducts = (data) => ({ type: SET_PRODUCTS, data })
 export const togleIsFetching = (isFetching) => ({ type: TOGLE_IS_FETCHING, isFetching })
 export const setTotalProducts = (total) => ({ type: SET_TOTAL_PRODUCTS, total })
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
+
+export const fillStateThunk = () => (dispatch) => {
+   apiGetCategories().then(data => { dispatch(setCategories(data)) })
+   apiGetBrands().then(data => { dispatch(setBrands(data)) })
+   apiGetProducts().then(data => {
+      dispatch(setProducts(data))
+      dispatch(setMinMax([Math.min(...data.map(item => Math.floor(+item.price))),
+      Math.max(...data.map(item => Math.ceil(+item.price)))]))
+   })
+}
+export const getProductsActiveThunk = (activeCategory) => (dispatch) => {
+   apiGetProductsActive(activeCategory)
+      .then(data => {
+         console.log(data);
+         dispatch(setTotalProducts(data.length))
+      })
+}
+
+export const getProductsPartsThunk = (activeCategory, currentPage, sizePage) => (dispatch) => {
+   dispatch(togleIsFetching(true))
+   dispatch(setCurrentPage(currentPage))
+   apiGetProductsParts(activeCategory, currentPage, sizePage)
+      .then(data => {
+         dispatch(setProducts(data))
+      }).then(() => { setTimeout(() => { dispatch(togleIsFetching(false)) }, 2000) })
+}
 
 export default productsReducer

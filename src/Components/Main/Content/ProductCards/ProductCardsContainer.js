@@ -1,34 +1,19 @@
 import React from 'react'
 import { connect } from "react-redux"
-import { apiGetProductsActive, apiGetProductsParts } from '../../../../API/api'
-import { setCurrentPage, setTotalProducts, setProducts, togleIsFetching } from "../../../../Redux/Reducers/productsReducer"
+import { getProductsPartsThunk, getProductsActiveThunk } from "../../../../Redux/Reducers/productsReducer"
 import ProductCards from './ProductCards'
 
 
 class ProductCardsContainer extends React.Component {
 
    componentDidMount() {
-
-      this.props.togleIsFetching(true)
-      apiGetProductsActive(this.props.activeCategory)
-         .then(data => {
-            console.log(data);
-            this.props.setTotalProducts(data.length)
-         })
-      apiGetProductsParts(this.props.activeCategory, this.props.currentPage, this.props.sizePage)
-         .then(data => {
-            this.props.setProducts(data)
-         }).then(() => { setTimeout(() => { this.props.togleIsFetching(false) }, 2000) })
+      this.props.getProductsActiveThunk(this.props.activeCategory)
+      this.props.getProductsPartsThunk(this.props.activeCategory, this.props.currentPage, this.props.sizePage)
    }
 
    helperFunc = (event) => {
-      this.props.togleIsFetching(true)
-      this.props.setCurrentPage(+event.target.textContent)
-      apiGetProductsParts(this.props.activeCategory, +event.target.textContent, this.props.sizePage)
-         .then(data => {
-            this.props.setProducts(data)
-         }).then(() => { setTimeout(() => { this.props.togleIsFetching(false) }, 2000) })
-
+      const current = +event.target.textContent
+      this.props.getProductsPartsThunk(this.props.activeCategory, current, this.props.sizePage)
    }
 
    render() {
@@ -51,4 +36,4 @@ let mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { setProducts, setCurrentPage, setTotalProducts, togleIsFetching })(ProductCardsContainer)
+export default connect(mapStateToProps, { getProductsActiveThunk, getProductsPartsThunk })(ProductCardsContainer)
