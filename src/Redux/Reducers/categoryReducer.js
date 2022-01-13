@@ -5,7 +5,7 @@ const SET_ACTIVE_CATEGORY = 'SET_ACTIVE_CATEGORY'
 
 let initState = {
    categories: [],
-   newinfo: "",
+   newinfo: '',
    activeCategory: ''
 }
 
@@ -26,18 +26,38 @@ const categoryReducer = (state = initState, action) => {
          }
       }
       case ADD_CATEGORY: {
-         const names = state.categories.map(item => item?.name)
-         const newCategory = {
-            name: state.newinfo,
-            id: String(parseInt(state.categories[state.categories.length - 1].id) + 1),
-            items: [],
+         let names, newCategory, current
+         if (state.activeCategory) {
+            current = state.categories.filter(i => i.id === state.activeCategory)[0]
+            names = current.items.map(item => item.name)
+            newCategory = {
+               name: state.newinfo,
+               parent_id: state.activeCategory,
+               id: String(parseInt(current.items[current.items.length - 1].id) + 1)
+            }
+         } else {
+            names = state.categories.map(item => item.name)
+            newCategory = {
+               name: state.newinfo,
+               id: String(parseInt(state.categories[state.categories.length - 1].id) + 1),
+               items: [],
+            }
          }
          let copy
          if ((newCategory.name) && !(names.includes(newCategory.name))) {
-            copy = {
-               ...state,
-               newinfo: '',
-               categories: [...state.categories, newCategory]
+            if (state.activeCategory) {
+               copy = {
+                  ...state,
+                  newinfo: '',
+                  categories: state.categories.map(i => i.id === state.activeCategory ?
+                     { ...i, items: [...i.items, newCategory] } : i)
+               }
+            } else {
+               copy = {
+                  ...state,
+                  newinfo: '',
+                  categories: [...state.categories, newCategory]
+               }
             }
          } else if (names.includes(newCategory.name)) {
             copy = {

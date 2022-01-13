@@ -1,7 +1,6 @@
 import { flex, button } from './Auth.module.css'
 import { Button } from '@mui/material'
 import Session from '../UI/Session/Session'
-import Cart from '../UI/Cart/Cart'
 import { useState } from 'react'
 import { Amplify } from 'aws-amplify'
 import awsExports from '../../aws-exports'
@@ -40,7 +39,6 @@ const Auth = () => {
             </>
          )}</Authenticator> : <>{user ? <Button onClick={helperSetUser} className={button} color="inherit">Log out</Button> :
             <Button onClick={helperOpenAuth} className={button} color="inherit">Log in</Button>}</>}
-         <Cart total={1} />
       </div>)
 }
 

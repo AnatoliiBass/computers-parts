@@ -29,7 +29,8 @@ const FilterCards = ({ arrObjects, subnames }) => {
                      <CardActions className={style.bottom}>
                         <div><Typography>{`Price: ${item.price} $`}</Typography></div>
                         <div className={style.buttons}>
-                           <NavLink to={`/parts/${subnames.filter(i => i.id === item.category_id)[0].parent_id}/${item.category_id}/${item.sku}`}>
+                           <NavLink to={`/parts/${subnames.filter(i => i.id === item.category_id)[0]
+                              .parent_id}/${item.category_id}/${item.sku}`}>
                               <Button size="small" color="inherit">See More...</Button></NavLink>
                            <Button size="small" color="inherit"><ShoppingCartIcon /></Button>
                         </div>

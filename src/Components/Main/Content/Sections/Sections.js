@@ -8,7 +8,8 @@ const Sections = ({ sections, btn, setActiveCategory }) => {
    const { id } = useParams()
    const elements = sections.filter(item => item.id === id)
    const subcategories = elements[0].items.map((item) => (
-      <NavLink to={`/parts/${elements[0].id}/${item.id}`} key={item.id} onClick={() => { setActiveCategory(item.id) }}><Title size="h4" seo="h3" description={item.name} /></NavLink>
+      <NavLink to={`/parts/${elements[0].id}/${item.id}`} key={item.id} onClick={() => { setActiveCategory(item.id) }}>
+         <Title size="h4" seo="h3" description={item.name} /></NavLink>
    ))
    return (
       <div>

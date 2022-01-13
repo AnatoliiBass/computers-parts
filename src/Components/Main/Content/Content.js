@@ -23,8 +23,8 @@ const Content = ({ products, categories, setActiveCategory }) => {
    return (
       <section className={content}>
          <Routes>
-            <Route path={BASEURL} element={<HomeSection sections={names} btn={true} />} />
-            <Route path={PARTS} element={<Sections sections={categories} setActiveCategory={setActiveCategory} />} />
+            <Route path={BASEURL} element={<HomeSection sections={names} setActiveCategory={setActiveCategory} btn={true} />} />
+            <Route path={PARTS} element={<Sections sections={categories} setActiveCategory={setActiveCategory} btn={true} />} />
             <Route path={ABOUT} element={<About />} />
             <Route path={CONTACTS} element={<Contacts />} />
             <Route path={USERS} element={<UsersListContainer />} />

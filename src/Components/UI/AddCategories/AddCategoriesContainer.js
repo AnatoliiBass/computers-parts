@@ -10,6 +10,6 @@ let mapStateToProps = (state) => {
 }
 
 
-const AddCategoriesContainer = connect(mapStateToProps, {addCategory, updateCategory})(AddCategories)
+const AddCategoriesContainer = connect(mapStateToProps, { addCategory, updateCategory })(AddCategories)
 
 export default AddCategoriesContainer
