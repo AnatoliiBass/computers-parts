@@ -76,7 +76,6 @@ export const fillStateThunk = () => (dispatch) => {
 export const getProductsActiveThunk = (activeCategory) => (dispatch) => {
    apiGetProductsActive(activeCategory)
       .then(data => {
-         console.log(data);
          dispatch(setTotalProducts(data.length))
       })
 }

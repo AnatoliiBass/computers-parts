@@ -16,15 +16,17 @@ const USERS = "/users"
 const PRODUCTCARDS = "/parts/:id/:subid"
 const PRODUCTITEM = "/parts/:id/:subid/:specialid"
 const FILTER = "/parts/filter/:obj"
-const Content = ({ products, categories, setActiveCategory }) => {
+const Content = ({ products, categories, setActiveCategory, deleteCategory, isAuth }) => {
    const names = categories.map(item => ({ name: item.name, id: item.id }))
    const subnames = categories.map(item => item.items).flat()
 
    return (
       <section className={content}>
          <Routes>
-            <Route path={BASEURL} element={<HomeSection sections={names} setActiveCategory={setActiveCategory} btn={true} />} />
-            <Route path={PARTS} element={<Sections sections={categories} setActiveCategory={setActiveCategory} btn={true} />} />
+            <Route path={BASEURL} element={<HomeSection sections={names} deleteCategory={deleteCategory}
+               setActiveCategory={setActiveCategory} isAuth={isAuth} />} />
+            <Route path={PARTS} element={<Sections sections={categories} deleteCategory={deleteCategory}
+               setActiveCategory={setActiveCategory} isAuth={isAuth} />} />
             <Route path={ABOUT} element={<About />} />
             <Route path={CONTACTS} element={<Contacts />} />
             <Route path={USERS} element={<UsersListContainer />} />

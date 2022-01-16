@@ -34,6 +34,17 @@ export const apiGetProductsParts = (activeCategory, currentPage, sizePage) => {
 export const apiGetCategories = () => {
    return instanceCategories.get().then(responce => responce.data)
 }
+export const apiSetCategory = (newCategory) => {
+   return instanceCategories.post('', newCategory).then(responce => responce.data)
+}
+
+export const apiUpdateCategory = (id, newCategory) => {
+   return instanceCategories.put(`/${id}`, newCategory).then(responce => responce.data)
+}
+
+export const apiDeleteCategory = (id) => {
+   return instanceCategories.delete(`/${id}`).then(responce => responce.data)
+}
 
 export const apiGetBrands = () => {
    return instanceBrands.get().then(responce => responce.data)

@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom"
 import { link } from './AccordionItems.module.css'
 
 const AccordionItems = ({ infoArray }) => {
-   console.log(infoArray);
    return (
       <div>
          {infoArray.map(item => (
