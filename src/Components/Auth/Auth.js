@@ -9,7 +9,7 @@ import '@aws-amplify/ui-react/styles.css'
 
 const Auth = (props) => {
    Amplify.configure(awsExports)
-   const [clickLogin, setClickLogin] = useState(false)
+   const [clickLogin, setClickLogin] = useState(props.isAuth)
    const helperAfterAuth = () => {
       props.setActiveUser()
    }

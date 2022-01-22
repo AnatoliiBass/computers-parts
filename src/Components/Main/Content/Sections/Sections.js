@@ -12,9 +12,9 @@ const Sections = ({ sections, isAuth, setActiveCategory, deleteCategory }) => {
       <div className={sectionItem} key={item.id}>
          <NavLink to={`/parts/${elements[0].id}/${item.id}`} onClick={() => { setActiveCategory(item.id) }}>
             <Title size="h4" seo="h3" description={item.name} /></NavLink>
-         <IconButton aria-label="delete" size="large" onClick={() => { deleteCategory(item.id, item.parent_id) }}>
+         {isAuth ? <IconButton aria-label="delete" size="large" onClick={() => { deleteCategory(item.id, item.parent_id) }}>
             <DeleteIcon fontSize="inherit" />
-         </IconButton>
+         </IconButton> : <></>}
       </div>
    ))
    return (

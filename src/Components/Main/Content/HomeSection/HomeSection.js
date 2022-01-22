@@ -10,9 +10,9 @@ const HomeSection = ({ sections, setActiveCategory, isAuth, deleteCategory }) =>
       <div className={sectionItem} key={item.id}>
          <NavLink to={`/parts/${item.id}`} onClick={() => { setActiveCategory(item.id) }}>
             <Title size="h4" seo="h3" description={item.name} /></NavLink>
-         <IconButton aria-label="delete" size="large" onClick={() => { deleteCategory(item.id) }}>
+         {isAuth ? <IconButton aria-label="delete" size="large" onClick={() => { deleteCategory(item.id) }}>
             <DeleteIcon fontSize="inherit" />
-         </IconButton>
+         </IconButton> : <></>}
       </div>
    ))
    return (
